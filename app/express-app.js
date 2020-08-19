@@ -142,7 +142,7 @@ module.exports.expressApp = pages => {
           await page.goto(
             url, {
               timeout: pageTimeoutMsec,
-              waitUntil: ['load', 'domcontentloaded']
+              waitUntil: ['networkidle0']
             }
           )
           const buff = await page.screenshot({
