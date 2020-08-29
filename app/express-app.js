@@ -1,4 +1,5 @@
 module.exports.expressApp = pages => {
+  console.log(`ajlozier/hcep-pdf-server:1.11.1`)
   const pagesNum = pages.length
   console.log(`pages.length: ${pages.length}`)
   let currentPageNo = 0
@@ -20,7 +21,7 @@ module.exports.expressApp = pages => {
   const pageTimeoutMsec = process.env.HCEP_PAGE_TIMEOUT_MSEC || 10000
   const listenPort = process.env.HCEP_PORT || 8000
   /* bytes or string for https://www.npmjs.com/package/bytes */
-  const maxRquestSize = process.env.HCEP_MAX_REQUEST_SIZE || '10MB'
+  const maxRequestSize = process.env.HCEP_MAX_REQUEST_SIZE || '10MB'
 
   const app = express()
   const env = app.get('env')
@@ -33,7 +34,7 @@ module.exports.expressApp = pages => {
 
   app.use(bodyParser.urlencoded({
     extended: false,
-    limit: maxRquestSize
+    limit: maxRequestSize
   }))
   app.use(timeout(appTimeoutMsec))
 
@@ -64,7 +65,7 @@ module.exports.expressApp = pages => {
           await page.goto(
             url, {
               timeout: pageTimeoutMsec,
-              waitUntil: ['load', 'domcontentloaded']
+              waitUntil: ['networkidle0']
             }
           )
           // Wait for web font loading completion
