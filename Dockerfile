@@ -29,12 +29,12 @@ ADD https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_a
 RUN chmod +x /usr/local/bin/dumb-init
 
 # if use default chromium installed with puppeteer
-ENV HCEP_USE_CHROMIUM true
+# ENV HCEP_USE_CHROMIUM true
 
 # else use chrome enable below settings
-#ENV HCEP_USE_CHROMIUM false
-#ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
-#ENV CHROME_BINARY /usr/bin/google-chrome
+ENV HCEP_USE_CHROMIUM false
+ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
+ENV CHROME_BINARY /usr/bin/google-chrome
 
 # If you want to extend pdf options, rename app/my-pdf-option-presets.js.sample to app/my-pdf-option-presets.js and activate this
 ENV HCEP_MY_PDF_OPTION_PRESETS_FILE_PATH="./my-pdf-option-presets"

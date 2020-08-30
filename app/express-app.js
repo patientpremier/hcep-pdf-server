@@ -1,5 +1,7 @@
+const pjson = require('../package.json');
+
 module.exports.expressApp = pages => {
-  console.log(`ajlozier/hcep-pdf-server:1.11.1`)
+  console.log(`ajlozier/hcep-pdf-server:${pjson.version}`)
   const pagesNum = pages.length
   console.log(`pages.length: ${pages.length}`)
   let currentPageNo = 0
