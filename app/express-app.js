@@ -41,10 +41,9 @@ module.exports.expressApp = pages => {
   app.use(timeout(appTimeoutMsec))
 
   function handlePageError(e, option) {
-    console.error('Page error occurred! process.exit()')
+    console.error('Page error occurred!')
     console.error('error:', e)
     console.error('option:', option)
-    process.exit()
   }
 
   app.route('/')
