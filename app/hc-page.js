@@ -1,7 +1,7 @@
 const debug = require('debug')('hcepPdfServer:hcPage')
 const generateLaunchOptions = () => {
   const options = {
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu']
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu', '--disable-dev-shm-usage']
   }
   if (process.env.HCEP_USE_CHROMIUM === 'true') {
     debug('use Chromium')

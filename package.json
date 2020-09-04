@@ -1,6 +1,6 @@
 {
   "name": "hcep-pdf-server",
-  "version": "1.11.3",
+  "version": "1.11.4",
   "description": "Simple PDF rendering server using Headless Chrome & Express & Puppeteer",
   "main": "app/pdf-server.js",
   "dependencies": {
